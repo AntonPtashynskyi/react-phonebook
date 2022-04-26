@@ -1,2 +1,6 @@
 export * from './ContactsList';
-export * from './CreateContactForm';
+export * from './ContactForm';
+export * from './ContactFilter';
+export * from './FavoriteContact';
+export * from './PhoneBookWrapper';
+export * from './ModalButton';
