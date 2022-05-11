@@ -1,0 +1,432 @@
+[33mcommit d69c7ca4c63ee42e8d4d155c22a6f204c5ccc20a[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: 30ee33c 63e835f
+Author: Anton Ptashynskyi <a.ptashynskyi@gmail.com>
+Date:   Tue Apr 26 14:12:06 2022 +0200
+
+    Merge branch 'main' of https://github.com/AntonPtashynskyi/react-phonebook
+
+[33mcommit 30ee33c7325bec8d679f119a415383684ffcca93[m
+Author: Anton Ptashynskyi <a.ptashynskyi@gmail.com>
+Date:   Tue Apr 26 14:11:41 2022 +0200
+
+    add some style
+
+[33mcommit 63e835f3067935c272d544c0d50f3f331a768488[m
+Author: Anton Ptashynskyi <86067969+AntonPtashynskyi@users.noreply.github.com>
+Date:   Fri Apr 22 16:57:16 2022 +0200
+
+    Update README.md
+
+[33mcommit 352f07c4f8a5718cc8c9f2548ef1f5af2d3e64c9[m
+Author: Anton Ptashynskyi <a.ptashynskyi@gmail.com>
+Date:   Sun Apr 17 22:25:18 2022 +0200
+
+    collecte data from FORM
+
+[33mcommit 66d84a6d97332a9539ee722d8b420a173392f515[m
+Author: Anton Ptashynskyi <a.ptashynskyi@gmail.com>
+Date:   Sat Apr 16 13:08:15 2022 +0200
+
+    create new project
+
+[33mcommit 1ef84783d14b6b891dd353c295a050a1343f1805[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Wed Apr 13 20:39:52 2022 +0300
+
+    Update index.js
+
+[33mcommit db9297f0b8d21b1c8a126449dcf00541b2f42311[m
+Merge: 0c1ae7c 84626fa
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Tue Apr 5 14:03:39 2022 +0300
+
+    Merge pull request #3 from goitacademy/dependabot/npm_and_yarn/minimist-1.2.6
+    
+    Bump minimist from 1.2.5 to 1.2.6
+
+[33mcommit 0c1ae7cf53fb2070ef793c151fac770c67fbcbe8[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Mon Apr 4 18:50:15 2022 +0300
+
+    bump react to v18
+
+[33mcommit 84626faa75bee939d816faeed0ae8c544ca0e5a1[m
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Fri Apr 1 07:47:17 2022 +0000
+
+    Bump minimist from 1.2.5 to 1.2.6
+    
+    Bumps [minimist](https://github.com/substack/minimist) from 1.2.5 to 1.2.6.
+    - [Release notes](https://github.com/substack/minimist/releases)
+    - [Commits](https://github.com/substack/minimist/compare/1.2.5...1.2.6)
+    
+    ---
+    updated-dependencies:
+    - dependency-name: minimist
+      dependency-type: indirect
+    ...
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+[33mcommit db06b7a148510078ab603cde748251b90e7c156d[m
+Merge: ca7d726 f36ab42
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Wed Feb 16 10:03:39 2022 +0200
+
+    Merge pull request #1 from goitacademy/dependabot/npm_and_yarn/follow-redirects-1.14.8
+    
+    Bump follow-redirects from 1.14.7 to 1.14.8
+
+[33mcommit f36ab4238d765bf9d6ab958095d951eb63eb7abb[m
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Wed Feb 16 00:54:52 2022 +0000
+
+    Bump follow-redirects from 1.14.7 to 1.14.8
+    
+    Bumps [follow-redirects](https://github.com/follow-redirects/follow-redirects) from 1.14.7 to 1.14.8.
+    - [Release notes](https://github.com/follow-redirects/follow-redirects/releases)
+    - [Commits](https://github.com/follow-redirects/follow-redirects/compare/v1.14.7...v1.14.8)
+    
+    ---
+    updated-dependencies:
+    - dependency-name: follow-redirects
+      dependency-type: indirect
+    ...
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+[33mcommit ca7d72652ca63dc0a2b0341f48236f82dfc7ffff[m
+Author: goit-i18n <84774169+goit-i18n@users.noreply.github.com>
+Date:   Thu Feb 3 12:21:24 2022 +0100
+
+    Update README.pl.md
+
+[33mcommit 2f424dfb10c443472c05d6b94d7af297fe326533[m
+Author: goit-i18n <84774169+goit-i18n@users.noreply.github.com>
+Date:   Thu Feb 3 12:17:33 2022 +0100
+
+    Update README.pl.md
+
+[33mcommit 38200798fe27fe43f391cab0e7749dc5fb4303f5[m
+Author: goit-i18n <84774169+goit-i18n@users.noreply.github.com>
+Date:   Thu Feb 3 12:17:12 2022 +0100
+
+    Update README.pl.md
+
+[33mcommit 45229ec2b00337dc060a8b0793a315ee4b291998[m
+Author: goit-i18n <84774169+goit-i18n@users.noreply.github.com>
+Date:   Thu Feb 3 10:56:11 2022 +0100
+
+    Update README.pl.md
+
+[33mcommit 47acdf2866f2fdc288d580192d40c2af080ec107[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Wed Feb 2 17:00:30 2022 +0200
+
+    add pl readme
+
+[33mcommit 4cb0aab48c97d1d6027eddc1fe4ce7d80446cfd7[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Wed Feb 2 16:57:07 2022 +0200
+
+    restructure how it works section
+
+[33mcommit 5bc188dc244559a21bf198d2efcb8860c37deb49[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Wed Feb 2 16:55:33 2022 +0200
+
+    add how it works section
+
+[33mcommit cf0c25cdc570863c850990bdacc25317bad4b3e6[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Wed Feb 2 15:45:42 2022 +0200
+
+    update readme
+
+[33mcommit a8a23926b91859078a0c6f6ce6d53a76857577e2[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Tue Feb 1 15:10:15 2022 +0200
+
+    move readme assets to separate folder
+
+[33mcommit 590f3d5e7d9909a94ecf4db242310350ad5207a4[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Tue Feb 1 14:43:27 2022 +0200
+
+    update readme
+
+[33mcommit d139b2a94b9ef09c5cf5846230d61fe0d1084b7d[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Tue Feb 1 14:37:58 2022 +0200
+
+    update init section
+
+[33mcommit a667b427ffceb39e1f7400d9064f9105486a812f[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Mon Jan 31 16:13:38 2022 +0200
+
+    update repo settings image
+
+[33mcommit e959862d0b495d15c676ed772f5abaa6e7dd1b37[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Mon Jan 31 16:12:19 2022 +0200
+
+    add new settings image
+
+[33mcommit d095b801c632b8de158a98e2ed938a239332b36b[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Mon Jan 31 16:11:52 2022 +0200
+
+    remove settings image
+
+[33mcommit 7f46e13e5af6f2303f61c9bb47a1ffb2059177ee[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Mon Jan 31 16:10:46 2022 +0200
+
+    update settings screenshot
+
+[33mcommit a26c2726efb8931893095af079d04ec33185c6c8[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Mon Jan 31 16:08:15 2022 +0200
+
+    add PL locale
+
+[33mcommit 55d7027ac3884348de6be69e85105d018f6fb7f7[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Mon Jan 31 16:05:46 2022 +0200
+
+    update readme
+
+[33mcommit 5c57f0c4b1fd1ba925674716c57258f1f52637f6[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Mon Jan 31 16:02:13 2022 +0200
+
+    add eslint before deploy
+
+[33mcommit 023cb29c6c6b25e4b267e23339710cd002b77aa8[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Mon Jan 31 15:56:30 2022 +0200
+
+    use node 16
+
+[33mcommit 5d0e844845143f92268d84e1c1b5bf0e0ef9d67a[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Mon Jan 31 15:43:37 2022 +0200
+
+    update action
+
+[33mcommit 5f95c592cb1a748d2ea94c94398e8d6d5685321e[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Mon Jan 31 15:41:22 2022 +0200
+
+    github actions lint test
+
+[33mcommit f7b1784b2391f8bf4af622ae1fbfeb9eb4c50009[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Mon Jan 31 15:40:06 2022 +0200
+
+    github actions lint test
+
+[33mcommit 6a039ba5bb96f5a1ce6325059a67d5b80d80824f[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Mon Jan 31 15:24:53 2022 +0200
+
+    add step nums
+
+[33mcommit f90f5a97a7f9229e3dc37f8463b1e4b7f8c79f3a[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Mon Jan 31 15:23:31 2022 +0200
+
+    update init steps
+
+[33mcommit f36af9ea064e1236f5797ca19d56960dcb81e24f[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Mon Jan 31 15:20:55 2022 +0200
+
+    add first page
+
+[33mcommit 361bd91a7ed070bfcfba5ced7b33948b178ac662[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Mon Jan 31 14:57:21 2022 +0200
+
+    update project init steps
+
+[33mcommit 6da565a66fa4e238a9250a75c2021f2e615a657a[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Mon Jan 31 14:51:14 2022 +0200
+
+    update readme
+
+[33mcommit 59429c5289050e14c5c5f4d8fe75fd2b8e32cdff[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Mon Jan 31 14:50:59 2022 +0200
+
+    change git remote instructions
+
+[33mcommit 78318f80febe2e5d4d2a3895ebdf07a8e5b1beae[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Mon Jan 31 14:50:05 2022 +0200
+
+    update readme
+
+[33mcommit 73a07e7a9ddf902eda451471e93746aa6d0ce6fc[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Mon Jan 31 14:48:48 2022 +0200
+
+    add git remote instructons
+
+[33mcommit c18dae4d515ff5fbd18f29052afc96f151c77643[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Mon Jan 31 14:29:01 2022 +0200
+
+    change title
+
+[33mcommit 93b4052a00980f8176c93cfe46039b13f141f457[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Mon Jan 31 14:20:53 2022 +0200
+
+    update readme
+
+[33mcommit c0bfe8068aaa0e4108b98d62d3f402a8f2a0ea57[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Mon Jan 31 14:18:24 2022 +0200
+
+    add 404 info
+
+[33mcommit ea7a830582042d3744dc00cd375b5b672dffdb07[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Mon Jan 31 14:16:58 2022 +0200
+
+    remove styles
+
+[33mcommit 5e7d7aed3e03bfb0106c593c2e6ca2b7498ded59[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Mon Jan 31 14:15:51 2022 +0200
+
+    fix typos and add styles
+
+[33mcommit c86948e2fe28291b1e818e9ff6563fe1b432910f[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Mon Jan 31 14:11:22 2022 +0200
+
+    update readme
+
+[33mcommit e05ebfd0fba66fbd51f146e2582043c6c0852d1b[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Tue Jan 25 21:16:44 2022 +0200
+
+    Update README.md
+
+[33mcommit 92763be7acfe3b1c856b343fd3f891dc5b83f0c2[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Sun Jan 23 23:17:45 2022 +0200
+
+    update readme
+
+[33mcommit 1b979376415968799165e3ce3d2c7ed9eb19adc7[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Sat Jan 22 23:27:39 2022 +0200
+
+    update readme
+
+[33mcommit b8b893eff223911e4bcf0fa9c9a87117d4fbf9ed[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Sat Jan 22 23:24:33 2022 +0200
+
+    rename img file
+
+[33mcommit 00cd9950620021e4a745a0cdbe6276c046140074[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Sat Jan 22 23:23:57 2022 +0200
+
+    update readme
+
+[33mcommit 590d8274bf2bd1f484ed46181870b955ec41fced[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Sat Jan 22 22:53:49 2022 +0200
+
+    add routing readme section
+
+[33mcommit b74b973ae932c87a92320e5c2a578ea380fbb7bc[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Sat Jan 22 22:41:40 2022 +0200
+
+    add deploy status readme section
+
+[33mcommit 87b34d5356e3982d593eb05f8e1b3e5041432e1e[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Thu Jan 20 14:50:02 2022 +0200
+
+    update readme
+
+[33mcommit 1bfa26a0f147632cac0dbb2b5728e1968c433d50[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Thu Jan 20 14:12:49 2022 +0200
+
+    add normalize css
+
+[33mcommit 220a09f57b6f16e4950eab248528aa8f8174d0f9[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Thu Jan 20 14:07:58 2022 +0200
+
+    remove routing test code
+
+[33mcommit 14fdc98369630262759de2beb9d5ea60d2f77a8c[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Thu Jan 20 14:03:32 2022 +0200
+
+    path segments test
+
+[33mcommit 26522d2e270478a6fa407d891c9653fb7c7a5dd6[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Thu Jan 20 14:00:23 2022 +0200
+
+    spa routing test
+
+[33mcommit 2abd9d2ac563a15e023816e0408ce633eeb99d1b[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Thu Jan 20 13:54:20 2022 +0200
+
+    add spa routing support for gh pages
+
+[33mcommit 394422be21624aa1117b58de0d53490c3e3d3d54[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Thu Jan 20 13:40:15 2022 +0200
+
+    add homepage field with baseurl
+
+[33mcommit 5d5931d3ffa0119b11967355be5c40612e1f8fdb[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Thu Jan 20 13:34:45 2022 +0200
+
+    add os and editor junk to gitignore
+
+[33mcommit f9f3a23d0f3a243e5859d3746e6b22357702eda0[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Thu Jan 20 13:32:20 2022 +0200
+
+    add github deploy action
+
+[33mcommit db275db983abd6d43744bc6fa7a2457e1e1539d3[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Thu Jan 20 13:28:23 2022 +0200
+
+    update jsconfig
+
+[33mcommit 77ea7cf2e0106bab3d0701bde44cb9e84c6818b7[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Thu Jan 20 13:25:51 2022 +0200
+
+    add configs
+
+[33mcommit 9cdebd4d0ca1105e91d955a7c7e7f430ad07449b[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Thu Jan 20 13:08:00 2022 +0200
+
+    init react app
+
+[33mcommit a3f436c19ab4635bf0df1109b424be3223ea88ad[m
+Author: Alexander Repeta <alexander.repeta@gmail.com>
+Date:   Thu Jan 20 12:51:03 2022 +0200
+
+    Initial commit

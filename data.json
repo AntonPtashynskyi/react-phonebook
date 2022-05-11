@@ -1,0 +1,25 @@
+{
+  "todos": [
+    {
+      "name": "Tom",
+      "id": "3",
+      "surname": "Bush",
+      "phone": "+454 443 4555",
+      "email": "tom@gmail.com"
+    },
+    {
+      "name": "Jake",
+      "id": "2",
+      "surname": "Gorman",
+      "phone": "+454 222 34677",
+      "email": "jake@gmail.com"
+    },
+    {
+      "name": "Oliver",
+      "id": "1",
+      "surname": "Stone",
+      "phone": "+454 99 04035",
+      "email": "oliver@gmail.com"
+    }
+  ]
+}

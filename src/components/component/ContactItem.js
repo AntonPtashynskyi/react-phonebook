@@ -7,12 +7,14 @@ import Typography from '@mui/material/Typography';
 
 import toast from 'react-hot-toast';
 
-import { deleteContact } from 'redux/Contact-Slice';
+// import { deleteContact } from 'redux/Contact-Slice';
 import { useDispatch } from 'react-redux';
+import { useDeleteContactMutation } from 'redux/ContactsAPI';
 
 export const ContactItem = ({ contact }) => {
-  const dispatch = useDispatch();
-  const { id, name, surname, phone, email } = contact;
+  // const dispatch = useDispatch();
+  const [deleteContact] = useDeleteContactMutation();
+  const { name, surname, phone, email, id } = contact;
 
   return (
     <li style={{ marginBottom: '10px', cursor: 'pointer' }}>
@@ -57,7 +59,8 @@ export const ContactItem = ({ contact }) => {
           </IconButton>
           <IconButton
             onClick={() => {
-              dispatch(deleteContact(id));
+              // dispatch(deleteContact(id));
+              deleteContact(id);
               toast.success('Contact was deleted');
             }}
             aria-label="delete"

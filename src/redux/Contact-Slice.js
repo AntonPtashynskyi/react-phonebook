@@ -1,8 +1,11 @@
+import axios from 'axios';
+
 import { createSlice } from '@reduxjs/toolkit';
 import storage from 'redux-persist/lib/storage';
 import { persistReducer } from 'redux-persist';
 
 import data from './db';
+axios.defaults.baseURL = 'http://localhost:4040';
 
 const getVisibleContacts = (items, value) => {
   return items.filter(
