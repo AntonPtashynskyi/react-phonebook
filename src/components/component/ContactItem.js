@@ -4,16 +4,14 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import Paper from '@mui/material/Paper';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
+import SaveIcon from '@mui/icons-material/Save';
 
 import toast from 'react-hot-toast';
 
-// import { deleteContact } from 'redux/Contact-Slice';
-import { useDispatch } from 'react-redux';
 import { useDeleteContactMutation } from 'redux/ContactsAPI';
 
-export const ContactItem = ({ contact }) => {
-  // const dispatch = useDispatch();
-  const [deleteContact] = useDeleteContactMutation();
+export const ContactItem = ({ contact, isFetching }) => {
+  const [deleteContact, { isLoading }] = useDeleteContactMutation();
   const { name, surname, phone, email, id } = contact;
 
   return (
@@ -59,13 +57,13 @@ export const ContactItem = ({ contact }) => {
           </IconButton>
           <IconButton
             onClick={() => {
-              // dispatch(deleteContact(id));
               deleteContact(id);
+
               toast.success('Contact was deleted');
             }}
             aria-label="delete"
           >
-            <DeleteIcon />
+            {isLoading ? <SaveIcon /> : <DeleteIcon />}
           </IconButton>
         </CardContent>
       </Paper>

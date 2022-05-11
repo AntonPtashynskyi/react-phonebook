@@ -1,5 +1,3 @@
-import { useDispatch } from 'react-redux';
-import { addContact } from 'redux/Contact-Slice';
 import { nanoid } from 'nanoid';
 
 import './component.css';
@@ -9,7 +7,6 @@ import { useCreateContactMutation } from 'redux/ContactsAPI';
 const isCheckedOrRadio = type => ['checkbox', 'radio'].includes(type);
 
 export const ContactForm = ({ modal, setModal }) => {
-  const dispatch = useDispatch();
   const [createContact] = useCreateContactMutation();
 
   const handleSubmit = e => {
@@ -28,7 +25,6 @@ export const ContactForm = ({ modal, setModal }) => {
       }
     }
 
-    // dispatch(addContact(values));
     createContact(values);
 
     setModal(!modal);
