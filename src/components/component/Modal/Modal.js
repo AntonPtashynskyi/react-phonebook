@@ -1,12 +1,16 @@
 import { nanoid } from 'nanoid';
+import { useEffect } from 'react';
 
-import './component.css';
-import { ModalButton } from './ModalButton';
+import '../component.css';
 import { useCreateContactMutation } from 'redux/ContactsAPI';
+
+import { StyledBackdrop } from './BackDrop.styled';
+import { StyledModal } from './Modal.styled';
+import { StyledModalButton } from '../styles/ModalButton.styled';
 
 const isCheckedOrRadio = type => ['checkbox', 'radio'].includes(type);
 
-export const ContactForm = ({ modal, setModal }) => {
+export const Modal = ({ modal, setModal }) => {
   const [createContact] = useCreateContactMutation();
 
   const handleSubmit = e => {
@@ -32,10 +36,28 @@ export const ContactForm = ({ modal, setModal }) => {
     form.reset();
   };
 
+  useEffect(() => {
+    const close = e => {
+      if (e.keyCode === 27) {
+        setModal(!modal);
+      }
+    };
+    window.addEventListener('keydown', close);
+    window.addEventListener('click', e => {
+      if ([...e.target.className].join('').includes('backdrop')) {
+        setModal(!modal);
+      }
+    });
+
+    return () => window.removeEventListener('keydown', close);
+  }, [modal, setModal]);
+
   return (
-    <div className="modal">
-      <div className="modal-content">
-        <ModalButton modal={modal} setModal={setModal} />
+    <StyledBackdrop>
+      <StyledModal>
+        <button className="close-button" onClick={() => setModal(!modal)}>
+          <i className="fa-solid fa-xmark"></i>
+        </button>
         <h2 className="modal-title">Create new contact</h2>
         <form onSubmit={handleSubmit} className="form">
           <div className="label-form">
@@ -46,6 +68,7 @@ export const ContactForm = ({ modal, setModal }) => {
               id="name"
               required
               placeholder="Name"
+              maxLength={10}
             />
           </div>
 
@@ -56,6 +79,7 @@ export const ContactForm = ({ modal, setModal }) => {
               name="surname"
               id="surname"
               placeholder="Surname"
+              maxLength={15}
             />
           </div>
 
@@ -75,16 +99,16 @@ export const ContactForm = ({ modal, setModal }) => {
             <input type="text" name="email" id="email" placeholder="Email" />
           </div>
 
-          <div className="label-check">
+          {/* <div className="label-check">
             <label htmlFor="favorite">add to favorite </label>
             <input type="checkbox" id="favorite" name="favorite" />
-          </div>
+          </div> */}
 
-          <button type="submit" className="add-button">
+          <StyledModalButton type="submit" className="add-button">
             Add contact
-          </button>
+          </StyledModalButton>
         </form>
-      </div>
-    </div>
+      </StyledModal>
+    </StyledBackdrop>
   );
 };

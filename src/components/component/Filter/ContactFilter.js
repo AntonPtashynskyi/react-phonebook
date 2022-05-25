@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilter } from 'redux/Contact-Slice';
+import { StyledInput } from './Input.styled';
 
 export const ContactFilter = () => {
   const filter = useSelector(state => state.filter);
@@ -13,14 +14,15 @@ export const ContactFilter = () => {
   };
 
   return (
-    <div>
-      <input
+    <>
+      <StyledInput
         type="text"
         name="filter"
         placeholder="FILTER CONTACTS"
+        autoComplete="off"
         value={filter}
         onChange={handleChange}
       />
-    </div>
+    </>
   );
 };

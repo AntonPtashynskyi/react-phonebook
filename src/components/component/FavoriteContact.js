@@ -1,5 +1,3 @@
-import { useSelector } from 'react-redux';
-
 export const FavoriteContact = () => {
   // const contacts = useSelector(state => state.contact);
 

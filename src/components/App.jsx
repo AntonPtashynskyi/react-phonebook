@@ -13,8 +13,8 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<LayoutView />}>
           <Route index element={<HomeView />} />
-          <Route path="contacts" element={<FavoriteContactsView />} />
-          <Route path="contacts/:contactId" element={<ContactInfo />} />
+          <Route path="favoriteContacts" element={<FavoriteContactsView />} />
+          <Route path="favoriteContacts/:contactId" element={<ContactInfo />} />
         </Route>
       </Routes>
     </>
