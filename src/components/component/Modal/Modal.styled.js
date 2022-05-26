@@ -74,4 +74,39 @@ export const StyledModal = styled.div`
       transform: scale(1.3);
     }
   }
+
+  @media (min-width: 764px) {
+    width: 400px;
+    height: 550px;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  @media (min-width: 1024px) {
+    width: 350px;
+    height: 400px;
+
+    input {
+      height: 30px;
+    }
+
+    .label-form {
+      font-size: 14px;
+    }
+
+    .modal-title {
+      font-size: 20px;
+    }
+
+    input::placeholder {
+      font-size: 12px;
+    }
+
+    .close-button {
+      font-size: 24px;
+    }
+  }
 `;

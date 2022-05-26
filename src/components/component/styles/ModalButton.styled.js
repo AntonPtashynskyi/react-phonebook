@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-export const StyledModalButton = styled.button`
+export const StyledModalButton = styled.button.attrs({
+  className: 'add-contact-button',
+})`
   width: 160px;
   height: 55px;
   background-color: rgb(41, 132, 168);
@@ -16,5 +18,10 @@ export const StyledModalButton = styled.button`
     background-color: rgb(9, 52, 70);
     transition: all 250ms ease-in;
     box-shadow: 0px 0px 18px 0px rgba(113, 116, 141, 0.76);
+  }
+
+  @media (min-width: 1024px) {
+    width: 120px;
+    height: 35px;
   }
 `;

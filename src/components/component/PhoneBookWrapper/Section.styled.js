@@ -33,7 +33,7 @@ export const StyledSection = styled.section`
       margin-right: auto;
     }
 
-    button {
+    .add-button {
       margin: 0;
     }
   }
