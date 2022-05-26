@@ -7,7 +7,7 @@ export const StyledButton = styled.button`
   font-size: 18px;
   font-family: 'Montserrat';
   min-width: ${props => props.width || '90px'};
-  height: 33px;
+  height: ${props => props.height || '33px'};
   background-color: transparent;
   color: rgba(255, 255, 255, 0.54);
   border: ${props => props.border || '1px solid rgba(255, 255, 255, 0.54)'};

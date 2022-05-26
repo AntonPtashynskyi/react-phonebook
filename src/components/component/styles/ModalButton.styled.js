@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const StyledModalButton = styled.button`
-  width: 120px;
-  height: 35px;
+  width: 160px;
+  height: 55px;
   background-color: rgb(41, 132, 168);
   border: none;
   border-radius: 5px;

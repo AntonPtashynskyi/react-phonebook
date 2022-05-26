@@ -8,8 +8,10 @@ export const StyledModal = styled.div`
   background-color: #fefefe;
   margin: 15% auto;
   padding: 20px;
-  border-radius: 10px;
-  max-width: 300px;
+
+  width: 100%;
+  height: 100%;
+  margin: 0;
 
   .form {
     display: flex;
@@ -21,15 +23,16 @@ export const StyledModal = styled.div`
 
   .modal-title {
     margin: 0 auto 10px auto;
-    font-size: 20px;
+    font-size: 25px;
   }
 
   .label-form {
     display: flex;
     flex-direction: column;
 
-    font-size: 14px;
+    font-size: 20px;
     color: rgb(45, 32, 102);
+    width: 100%;
   }
 
   .label-check {
@@ -42,14 +45,13 @@ export const StyledModal = styled.div`
   }
 
   input {
-    width: 250px;
-    height: 30px;
+    height: 50px;
     border: 1px solid rgba(45, 32, 102, 0.5);
     border-radius: 5px;
 
     &::placeholder {
       color: rgba(136, 136, 136, 0.959);
-      font-size: 10px;
+      font-size: 15px;
     }
   }
 
@@ -58,6 +60,8 @@ export const StyledModal = styled.div`
     justify-content: center;
     align-items: center;
     background: transparent;
+
+    font-size: 35px;
 
     padding: 10px;
     border-radius: 50%;

@@ -104,7 +104,12 @@ export const Modal = ({ modal, setModal }) => {
             <input type="checkbox" id="favorite" name="favorite" />
           </div> */}
 
-          <StyledModalButton type="submit" className="add-button">
+          <StyledModalButton
+            type="submit"
+            className="add-button"
+            width="70px"
+            height="60px"
+          >
             Add contact
           </StyledModalButton>
         </form>
