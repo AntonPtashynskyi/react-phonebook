@@ -1,22 +1,22 @@
-import { useState } from 'react';
+import React from 'react';
 import { ContactFilter } from '../Filter/ContactFilter';
 
 import { ContactsList, ModalButton } from '../index';
 import { Modal } from '../Modal/Modal';
 
 import { StyledSection } from './Section.styled';
+import { useModal } from '../Modal/ModalContext';
 
 export const PhoneBookWrapper = () => {
-  const [modal, setModal] = useState(false);
+  const { modal } = useModal();
 
   return (
     <>
       <StyledSection>
         <h2>Phone book</h2>
-        <ModalButton modal={modal} setModal={setModal} />
+        <ModalButton />
         <ContactFilter />
-
-        {modal && <Modal modal={modal} setModal={setModal} />}
+        {modal && <Modal />}
       </StyledSection>
       <ContactsList />
     </>

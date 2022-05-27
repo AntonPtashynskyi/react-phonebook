@@ -9,6 +9,7 @@ export const ContactsList = () => {
   return (
     <>
       <h3>Contact list</h3>
+
       <StyledList className="contact-list">
         {data && data.map(item => <ContactItem contact={item} key={item.id} />)}
       </StyledList>

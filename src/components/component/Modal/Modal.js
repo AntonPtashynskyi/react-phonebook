@@ -1,17 +1,31 @@
 import { nanoid } from 'nanoid';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import '../component.css';
-import { useCreateContactMutation } from 'redux/ContactsAPI';
+import {
+  useCreateContactMutation,
+  useGetContactQuery,
+} from 'redux/ContactsAPI';
 
 import { StyledBackdrop } from './BackDrop.styled';
 import { StyledModal } from './Modal.styled';
 import { StyledModalButton } from '../styles/ModalButton.styled';
+import { useModal } from './ModalContext';
 
 const isCheckedOrRadio = type => ['checkbox', 'radio'].includes(type);
 
-export const Modal = ({ modal, setModal }) => {
+export const Modal = () => {
+  const [name, setName] = useState('');
+  const [surname, setSurname] = useState('');
+  const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
+  const { modal, setModalState: toggle } = useModal();
   const [createContact] = useCreateContactMutation();
+  const { data, isLoading, status } = useGetContactQuery(
+    modal,
+    typeof modal === 'string'
+  );
+  //useEffect data && name === setName
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -31,34 +45,32 @@ export const Modal = ({ modal, setModal }) => {
 
     createContact(values);
 
-    setModal(!modal);
+    toggle(false);
 
     form.reset();
   };
 
+  useEffect(() => {}, [modal]);
+
   useEffect(() => {
     const close = e => {
       if (e.keyCode === 27) {
-        setModal(!modal);
+        toggle(false);
       }
     };
     window.addEventListener('keydown', close);
-    window.addEventListener('click', e => {
-      if ([...e.target.className].join('').includes('backdrop')) {
-        setModal(!modal);
-      }
-    });
 
     return () => window.removeEventListener('keydown', close);
-  }, [modal, setModal]);
+  }, [modal, toggle]);
 
   return (
     <StyledBackdrop>
       <StyledModal>
-        <button className="close-button" onClick={() => setModal(!modal)}>
+        <button className="close-button" onClick={() => toggle(false)}>
           <i className="fa-solid fa-xmark"></i>
         </button>
         <h2 className="modal-title">Create new contact</h2>
+
         <form onSubmit={handleSubmit} className="form">
           <div className="label-form">
             <label htmlFor="name">Name</label>
