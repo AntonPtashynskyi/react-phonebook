@@ -39,8 +39,8 @@ export const contactApi = createApi({
     }),
 
     updateContact: builder.mutation({
-      query: ({ contactId, ...rest }) => ({
-        url: `/contacts/${contactId}`,
+      query: ({ id, ...rest }) => ({
+        url: `/contacts/${id}`,
         method: 'PUT',
         body: rest,
       }),

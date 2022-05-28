@@ -5,6 +5,7 @@ import '../component.css';
 import {
   useCreateContactMutation,
   useGetContactQuery,
+  useUpdateContactMutation,
 } from 'redux/ContactsAPI';
 
 import { StyledBackdrop } from './BackDrop.styled';
@@ -15,42 +16,64 @@ import { useModal } from './ModalContext';
 const isCheckedOrRadio = type => ['checkbox', 'radio'].includes(type);
 
 export const Modal = () => {
+  const { modal, setModalState: toggle } = useModal();
+  const { data, isLoading } = useGetContactQuery(
+    modal,
+    typeof modal === 'string'
+  );
+
   const [name, setName] = useState('');
   const [surname, setSurname] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
-  const { modal, setModalState: toggle } = useModal();
+  const [id, setId] = useState('');
+
   const [createContact] = useCreateContactMutation();
-  const { data, isLoading, status } = useGetContactQuery(
-    modal,
-    typeof modal === 'string'
-  );
-  //useEffect data && name === setName
+  const [updateContact] = useUpdateContactMutation();
+
+  useEffect(() => {
+    if (data) {
+      setName(data.name);
+      setSurname(data.surname);
+      setPhone(data.phone);
+      setEmail(data.email);
+      setId(data.id);
+    }
+  }, [data]);
 
   const handleSubmit = e => {
     e.preventDefault();
-
-    const values = {};
     const form = e.currentTarget;
-    const formEl = e.currentTarget.elements;
 
-    for (const element of formEl) {
-      const { name, value, type, checked } = element;
+    const values = {
+      name,
+      surname,
+      phone,
+      email,
+      id,
+    };
+    // const formEl = e.currentTarget.elements;
 
-      if (name) {
-        values[name] = isCheckedOrRadio(type) ? checked : value;
-        values['id'] = nanoid();
-      }
+    // for (const element of formEl) {
+    //   const { name, value, type, checked } = element;
+
+    //   if (name) {
+    //     values[name] = isCheckedOrRadio(type) ? checked : value;
+    //     // values['id'] = nanoid();
+    //     values['id'] = id ? id : nanoid();
+    //   }
+    // }
+
+    if (data) {
+      updateContact({ id, name, surname, phone, email });
+    } else {
+      createContact(values);
     }
-
-    createContact(values);
 
     toggle(false);
 
     form.reset();
   };
-
-  useEffect(() => {}, [modal]);
 
   useEffect(() => {
     const close = e => {
@@ -69,55 +92,68 @@ export const Modal = () => {
         <button className="close-button" onClick={() => toggle(false)}>
           <i className="fa-solid fa-xmark"></i>
         </button>
-        <h2 className="modal-title">Create new contact</h2>
+        <h2 className="modal-title">
+          {data ? 'Change contact' : 'Create new contact'}
+        </h2>
 
-        <form onSubmit={handleSubmit} className="form">
-          <div className="label-form">
-            <label htmlFor="name">Name</label>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              required
-              placeholder="Name"
-              maxLength={10}
-            />
-          </div>
+        {isLoading ? (
+          'LOADING...'
+        ) : (
+          <form onSubmit={handleSubmit} className="form">
+            <div className="label-form">
+              <label htmlFor="name">Name</label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                required
+                value={name}
+                onChange={e => setName(e.currentTarget.value)}
+                placeholder="Name"
+                maxLength={10}
+              />
+            </div>
+            <div className="label-form">
+              <label htmlFor="surname">Surname</label>
+              <input
+                type="text"
+                name="surname"
+                id="surname"
+                value={surname}
+                onChange={e => setSurname(e.currentTarget.value)}
+                placeholder="Surname"
+                maxLength={15}
+              />
+            </div>
+            <div className="label-form">
+              <label htmlFor="phone">Phone </label>
+              <input
+                type="phone"
+                name="phone"
+                id="phone"
+                value={phone}
+                onChange={e => setPhone(e.currentTarget.value)}
+                required
+                placeholder="Phone number"
+              />
+            </div>
+            <div className="label-form">
+              <label htmlFor="email">Email:</label>
+              <input
+                type="text"
+                name="email"
+                id="email"
+                value={email}
+                onChange={e => setEmail(e.currentTarget.value)}
+                placeholder="Email"
+              />
+            </div>
 
-          <div className="label-form">
-            <label htmlFor="surname">Surname</label>
-            <input
-              type="text"
-              name="surname"
-              id="surname"
-              placeholder="Surname"
-              maxLength={15}
-            />
-          </div>
-
-          <div className="label-form">
-            <label htmlFor="phone">Phone </label>
-            <input
-              type="phone"
-              name="phone"
-              id="phone"
-              required
-              placeholder="Phone number"
-            />
-          </div>
-
-          <div className="label-form">
-            <label htmlFor="email">Email:</label>
-            <input type="text" name="email" id="email" placeholder="Email" />
-          </div>
-
-          {/* <div className="label-check">
-            <label htmlFor="favorite">add to favorite </label>
-            <input type="checkbox" id="favorite" name="favorite" />
-          </div> */}
-
-          <StyledModalButton type="submit">Add contact</StyledModalButton>
-        </form>
+            <StyledModalButton type="submit">
+              {data ? 'Save' : 'Add contact'}
+            </StyledModalButton>
+          </form>
+        )}
       </StyledModal>
     </StyledBackdrop>
   );
