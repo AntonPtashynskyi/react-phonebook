@@ -1,4 +1,3 @@
-import { nanoid } from 'nanoid';
 import { useEffect, useState } from 'react';
 
 import '../component.css';
@@ -13,7 +12,8 @@ import { StyledModal } from './Modal.styled';
 import { StyledModalButton } from '../styles/ModalButton.styled';
 import { useModal } from './ModalContext';
 
-const isCheckedOrRadio = type => ['checkbox', 'radio'].includes(type);
+// if need validate radio button
+// const isCheckedOrRadio = type => ['checkbox', 'radio'].includes(type);
 
 export const Modal = () => {
   const { modal, setModalState: toggle } = useModal();
@@ -52,17 +52,6 @@ export const Modal = () => {
       email,
       id,
     };
-    // const formEl = e.currentTarget.elements;
-
-    // for (const element of formEl) {
-    //   const { name, value, type, checked } = element;
-
-    //   if (name) {
-    //     values[name] = isCheckedOrRadio(type) ? checked : value;
-    //     // values['id'] = nanoid();
-    //     values['id'] = id ? id : nanoid();
-    //   }
-    // }
 
     if (data) {
       updateContact({ id, name, surname, phone, email });
