@@ -1,4 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 
 export const contactApi = createApi({
   reducerPath: 'contactApi',
@@ -48,6 +50,17 @@ export const contactApi = createApi({
     }),
   }),
 });
+
+const persistConfig = {
+  key: 'contacts',
+  storage,
+  whitelist: ['contacts'],
+};
+
+export const persistedContactsReducer = persistReducer(
+  persistConfig,
+  contactApi.reducer
+);
 
 export const {
   endpoints,

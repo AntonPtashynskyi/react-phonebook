@@ -41,6 +41,17 @@ export const Modal = () => {
     }
   }, [data]);
 
+  useEffect(() => {
+    const close = e => {
+      if (e.keyCode === 27) {
+        toggle(false);
+      }
+    };
+    window.addEventListener('keydown', close);
+
+    return () => window.removeEventListener('keydown', close);
+  }, [toggle]);
+
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.currentTarget;
@@ -63,17 +74,6 @@ export const Modal = () => {
 
     form.reset();
   };
-
-  useEffect(() => {
-    const close = e => {
-      if (e.keyCode === 27) {
-        toggle(false);
-      }
-    };
-    window.addEventListener('keydown', close);
-
-    return () => window.removeEventListener('keydown', close);
-  }, [modal, toggle]);
 
   return (
     <StyledBackdrop>

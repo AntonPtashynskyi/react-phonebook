@@ -9,13 +9,13 @@ import {
   REGISTER,
 } from 'redux-persist';
 
-import { persistedContactsReducer } from './Contact-Slice';
-import { contactApi } from './ContactsAPI';
+// import { persistedContactsReducer } from './Contact-Slice';
+import { contactApi, persistedContactsReducer } from './ContactsAPI';
 
 export const store = configureStore({
   reducer: {
-    contact: persistedContactsReducer,
-    [contactApi.reducerPath]: contactApi.reducer,
+    // contact: persistedContactsReducer,
+    [contactApi.reducerPath]: persistedContactsReducer,
   },
   middleware: getDefaultMiddleware => [
     ...getDefaultMiddleware({
