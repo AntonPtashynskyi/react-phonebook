@@ -29,9 +29,9 @@ export const StyledModal = styled.div`
   .label-form {
     display: flex;
     flex-direction: column;
+    color: rgba(45, 32, 102, 0.9);
 
     font-size: 20px;
-    color: rgb(45, 32, 102);
     width: 100%;
   }
 
@@ -48,6 +48,8 @@ export const StyledModal = styled.div`
     height: 50px;
     border: 1px solid rgba(45, 32, 102, 0.5);
     border-radius: 5px;
+    font-size: 22px;
+    color: rgba(45, 32, 102, 0.9);
 
     &::placeholder {
       color: rgba(136, 136, 136, 0.959);
@@ -86,27 +88,5 @@ export const StyledModal = styled.div`
   }
 
   @media (min-width: 1024px) {
-    width: 350px;
-    height: 400px;
-
-    input {
-      height: 30px;
-    }
-
-    .label-form {
-      font-size: 14px;
-    }
-
-    .modal-title {
-      font-size: 20px;
-    }
-
-    input::placeholder {
-      font-size: 12px;
-    }
-
-    .close-button {
-      font-size: 24px;
-    }
   }
 `;

@@ -9,14 +9,17 @@ import { useModal } from '../Modal/ModalContext';
 
 export const PhoneBookWrapper = () => {
   const { modal } = useModal();
-  const [filterValue, setFilter] = useState('');
+  const [filterValue, setFilterValue] = useState('');
 
   return (
     <>
       <StyledSection>
         <h2>Phone book</h2>
         <AddContactButton />
-        <ContactFilter filter={filterValue} setFilter={setFilter} />
+        <ContactFilter
+          filterValue={filterValue}
+          setFilterValue={setFilterValue}
+        />
         {modal && <Modal />}
       </StyledSection>
       <ContactsList filterValue={filterValue} />
