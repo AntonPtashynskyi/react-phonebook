@@ -1,3 +1,4 @@
+import toast from 'react-hot-toast';
 import { useEffect, useState } from 'react';
 
 import '../component.css';
@@ -29,7 +30,7 @@ export const Modal = () => {
   const [updateContact] = useUpdateContactMutation();
 
   useEffect(() => {
-    if (contactId.length) {
+    if (contact && contactId.length) {
       setName(contact.name);
       setSurname(contact.surname);
       setPhone(contact.phone);
@@ -62,9 +63,19 @@ export const Modal = () => {
     };
 
     if (contactId) {
-      updateContact({ id, name, surname, phone, email });
+      try {
+        updateContact({ id, name, surname, phone, email });
+        toast.success('Saved');
+      } catch (error) {
+        toast.error('Ups something went wrong');
+      }
     } else {
-      createContact(values);
+      try {
+        createContact(values);
+        toast.success('Contact was added');
+      } catch (error) {
+        toast.error('Ups something went wrong');
+      }
     }
 
     toggle(false);
