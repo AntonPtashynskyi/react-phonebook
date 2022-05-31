@@ -16,11 +16,8 @@ import { useModal } from './ModalContext';
 // const isCheckedOrRadio = type => ['checkbox', 'radio'].includes(type);
 
 export const Modal = () => {
-  const { modal, setModalState: toggle } = useModal();
-  const { data, isLoading } = useGetContactQuery(
-    modal,
-    typeof modal === 'string'
-  );
+  const { setModalState: toggle, contactId, setContactId } = useModal();
+  const { data: contact, isLoading } = useGetContactQuery(contactId);
 
   const [name, setName] = useState('');
   const [surname, setSurname] = useState('');
@@ -32,14 +29,14 @@ export const Modal = () => {
   const [updateContact] = useUpdateContactMutation();
 
   useEffect(() => {
-    if (data) {
-      setName(data.name);
-      setSurname(data.surname);
-      setPhone(data.phone);
-      setEmail(data.email);
-      setId(data.id);
+    if (contactId.length) {
+      setName(contact.name);
+      setSurname(contact.surname);
+      setPhone(contact.phone);
+      setEmail(contact.email);
+      setId(contact.id);
     }
-  }, [data]);
+  }, [contact, contactId.length]);
 
   useEffect(() => {
     const close = e => {
@@ -47,8 +44,8 @@ export const Modal = () => {
         toggle(false);
       }
     };
-    window.addEventListener('keydown', close);
 
+    window.addEventListener('keydown', close);
     return () => window.removeEventListener('keydown', close);
   }, [toggle]);
 
@@ -64,14 +61,14 @@ export const Modal = () => {
       id,
     };
 
-    if (data) {
+    if (contactId) {
       updateContact({ id, name, surname, phone, email });
     } else {
       createContact(values);
     }
 
     toggle(false);
-
+    setContactId('');
     form.reset();
   };
 
@@ -82,7 +79,7 @@ export const Modal = () => {
           <i className="fa-solid fa-xmark"></i>
         </button>
         <h2 className="modal-title">
-          {data ? 'Change contact' : 'Create new contact'}
+          {contact ? 'Change contact' : 'Create new contact'}
         </h2>
 
         {isLoading ? (
@@ -139,7 +136,7 @@ export const Modal = () => {
             </div>
 
             <StyledModalButton type="submit">
-              {data ? 'Save' : 'Add contact'}
+              {contact ? 'Save' : 'Add contact'}
             </StyledModalButton>
           </form>
         )}

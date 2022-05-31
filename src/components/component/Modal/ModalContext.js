@@ -8,13 +8,16 @@ export const useModal = () => {
 
 export const ModalProvider = ({ children }) => {
   const [modal, setModal] = useState(false);
+  const [contactId, setContactId] = useState('');
 
-  const setModalState = id => {
-    setModal(id);
+  const setModalState = boolean => {
+    setModal(boolean);
   };
 
   return (
-    <ModalContext.Provider value={{ modal, setModalState }}>
+    <ModalContext.Provider
+      value={{ modal, setModalState, contactId, setContactId }}
+    >
       {children}
     </ModalContext.Provider>
   );

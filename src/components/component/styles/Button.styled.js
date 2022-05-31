@@ -13,6 +13,10 @@ export const StyledButton = styled.button.attrs({ className: 'add-button' })`
   border: ${props => props.border || '1px solid rgba(255, 255, 255, 0.54)'};
   border-radius: 5px;
   transition: all 150ms ease-in;
+  padding: ${props => props.padding || '0 10px'};
+
+  box-sizing: border-box;
+
   cursor: pointer;
 
   margin-bottom: ${props => props.margin};

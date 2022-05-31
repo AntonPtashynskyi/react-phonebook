@@ -29,7 +29,7 @@ export const StyledContactItem = styled.li`
     display: flex;
     justify-content: flex-end;
     position: absolute;
-    top: 5px;
+    top: 3px;
     right: 5px;
   }
 

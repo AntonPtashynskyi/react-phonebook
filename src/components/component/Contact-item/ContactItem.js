@@ -9,7 +9,7 @@ import { StyledLink } from './ContactLink.styled';
 import { useModal } from '../Modal/ModalContext';
 
 export const ContactItem = ({ contact }) => {
-  const { setModalState: toggle } = useModal();
+  const { setModalState: toggle, setContactId } = useModal();
   const [deleteContact, { isLoading }] = useDeleteContactMutation();
 
   const { name, surname, phone, email, id } = contact;
@@ -35,7 +35,11 @@ export const ContactItem = ({ contact }) => {
           border="none"
           name="edit"
           width="30px"
-          onClick={() => toggle(id)}
+          padding="0"
+          onClick={() => {
+            toggle(true);
+            setContactId(id);
+          }}
         >
           <MdModeEdit size="1.5em" />
         </StyledButton>
@@ -43,6 +47,7 @@ export const ContactItem = ({ contact }) => {
           border="none"
           width="30px"
           name="delete"
+          padding="0"
           onClick={() => {
             deleteContact(id);
             toast.success('Contact was deleted');
