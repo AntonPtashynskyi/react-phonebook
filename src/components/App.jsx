@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 
-import { LayoutView, Phonebook, ContactInfo, HomePage } from './view/index';
+import { LayoutView, Phonebook, HomePage, Registration } from './view/index';
 
 export const App = () => {
   return (
@@ -9,7 +9,8 @@ export const App = () => {
         <Route path="/" element={<LayoutView />}>
           <Route index element={<HomePage />} />
           <Route path="phone" element={<Phonebook />} />
-          <Route path="favoriteContacts/:contactId" element={<ContactInfo />} />
+          <Route path="registration" element={<Registration />} />
+          <Route path="login" element={<Registration />} />
         </Route>
       </Routes>
     </>

@@ -86,7 +86,4 @@ export const StyledModal = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
   }
-
-  @media (min-width: 1024px) {
-  }
 `;

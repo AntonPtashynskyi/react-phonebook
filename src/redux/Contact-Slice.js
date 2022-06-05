@@ -57,7 +57,7 @@ const persistConfig = {
   whitelist: ['contacts'],
 };
 
-export const persistedContactsReducer = persistReducer(
+export const persistedContactsReducerSlice = persistReducer(
   persistConfig,
   contactSlice.reducer
 );
