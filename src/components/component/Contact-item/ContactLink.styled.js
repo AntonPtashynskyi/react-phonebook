@@ -1,10 +1,11 @@
 import styled from 'styled-components';
+import * as palette from '../styles/Pallet.styled';
 
 export const StyledLink = styled.a`
   position: relative;
   text-decoration: none;
 
-  color: orange;
+  color: ${palette.CONTACT_TEXT_COLOR};
   cursor: pointer;
   margin-bottom: 5px;
   transition: all 250ms ease;

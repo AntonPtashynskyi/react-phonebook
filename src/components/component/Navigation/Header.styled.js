@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import * as palette from '../styles/Pallet.styled';
 
 export const StyledHeader = styled.header`
   display: flex;
@@ -8,7 +9,7 @@ export const StyledHeader = styled.header`
   width: 100%;
 
   padding-bottom: 10px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.54);
+  border-bottom: 1px solid ${palette.MAIN_BORDER_COLOR};
 
   text-align: center;
 

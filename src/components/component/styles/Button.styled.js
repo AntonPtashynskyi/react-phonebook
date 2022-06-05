@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import * as palette from '../styles/Pallet.styled';
 
 export const StyledButton = styled.button.attrs({ className: 'add-button' })`
   display: flex;
@@ -9,8 +10,8 @@ export const StyledButton = styled.button.attrs({ className: 'add-button' })`
   min-width: ${props => props.width || '90px'};
   height: ${props => props.height || '33px'};
   background-color: transparent;
-  color: rgba(255, 255, 255, 0.54);
-  border: ${props => props.border || '1px solid rgba(255, 255, 255, 0.54)'};
+  color: ${palette.MAIN_TEXT_COLOR};
+  border: ${props => props.border || `1px solid ${palette.MAIN_BORDER_COLOR}`};
   border-radius: 5px;
   transition: all 150ms ease-in;
   padding: ${props => props.padding || '0 10px'};
@@ -22,13 +23,13 @@ export const StyledButton = styled.button.attrs({ className: 'add-button' })`
   margin-bottom: ${props => props.margin};
 
   &:hover {
-    color: rgba(222, 165, 53, 0.694);
-    border: 1px solid rgba(222, 165, 53, 0.694);
+    color: ${palette.FOCUS_COLOR};
+    border: 1px solid ${palette.FOCUS_COLOR};
   }
 
   &:focus {
-    color: rgba(222, 165, 53, 0.694);
-    border: 1px solid rgba(222, 165, 53, 0.694);
+    color: ${palette.FOCUS_COLOR};
+    border: 1px solid ${palette.FOCUS_COLOR};
     outline: 1px solid white;
   }
 `;

@@ -2,15 +2,22 @@ import { StyledNavLink } from './NavLink.styled';
 import { StyledHeader } from './Header.styled';
 import { NavigationStyled } from './Navigation.styled';
 import { StyledButton } from '../styles/Button.styled';
+import toast from 'react-hot-toast';
 
 export const Navigation = () => {
+  const handleLoginButton = () => {
+    toast.error('Sorry, do not wort yet');
+  };
+
   return (
     <StyledHeader>
       <NavigationStyled>
-        <StyledNavLink to="/">PhoneBook</StyledNavLink>
-        <StyledNavLink to="favoriteContacts">Contacts</StyledNavLink>
+        <StyledNavLink to="/">Home</StyledNavLink>
+        <StyledNavLink to="phone">PhoneBook</StyledNavLink>
       </NavigationStyled>
-      <StyledButton margin="10px">LogIn</StyledButton>
+      <StyledButton margin="10px" onClick={handleLoginButton}>
+        LogIn
+      </StyledButton>
     </StyledHeader>
   );
 };

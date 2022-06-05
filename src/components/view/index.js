@@ -1,4 +1,4 @@
 export * from './ContactInfo';
-export * from './FavoriteContactView';
-export * from './HomeView';
+export * from './HomePage';
+export * from './Phonebook';
 export * from './LayoutView';

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import * as palette from '../styles/Pallet.styled';
 
 export const StyledContactItem = styled.li`
   display: flex;
@@ -8,7 +9,7 @@ export const StyledContactItem = styled.li`
   color: #fff;
 
   padding: 10px 10px;
-  border: 1px solid rgba(255, 255, 255, 0.54);
+  border: 1px solid ${palette.MAIN_BORDER_COLOR};
   border-radius: 5px;
   width: 100%;
   transition: box-shadow 150ms ease;
@@ -44,6 +45,14 @@ export const StyledContactItem = styled.li`
   @media (min-width: 1024px) {
     width: 100%;
     flex-direction: row;
+
+    &:hover .button-container {
+      display: flex;
+    }
+
+    .button-container {
+      display: none;
+    }
 
     p,
     a {
