@@ -1,12 +1,14 @@
 import { useNavigate } from 'react-router-dom';
 import { RegForm } from './RegistrationForm.styled';
 import { StyledModalButton } from '../styles/ModalButton.styled';
+import { useRegisterQuery } from 'redux/AuthReducer';
 
 export const RegistrationForm = () => {
   const navigate = useNavigate();
 
   const handleSubmit = async e => {
     e.preventDefault();
+
     const user = {};
 
     const form = e.currentTarget;
@@ -20,9 +22,7 @@ export const RegistrationForm = () => {
       }
     }
 
-    console.log(user);
-
-    navigate('/');
+    // navigate('/');
     form.reset();
   };
 
@@ -32,15 +32,15 @@ export const RegistrationForm = () => {
         <h3>Registration form</h3>
         <label>
           Name
-          <input type="text" name="name" required />
+          <input type="text" name="name" required placeholder=" " />
         </label>
         <label>
           Email
-          <input type="email" name="email" required />
+          <input type="email" name="email" required placeholder=" " />
         </label>
         <label>
           Password
-          <input type="password" name="password" required />
+          <input type="password" name="password" required placeholder=" " />
         </label>
         <StyledModalButton type="submit">Submit</StyledModalButton>
       </RegForm>
