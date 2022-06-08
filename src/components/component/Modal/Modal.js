@@ -18,26 +18,26 @@ import { useModal } from './ModalContext';
 
 export const Modal = () => {
   const { setModalState: toggle, contactId, setContactId } = useModal();
-  const { data: contact, isLoading } = useGetContactQuery(contactId);
+  const { data: contacts, isLoading } = useGetContactQuery(contactId);
 
   const [name, setName] = useState('');
-  const [surname, setSurname] = useState('');
-  const [phone, setPhone] = useState('');
-  const [email, setEmail] = useState('');
-  const [id, setId] = useState('');
+  const [number, setNumber] = useState('');
+  // const [surname, setSurname] = useState('');
+  // const [email, setEmail] = useState('');
+  // const [id, setId] = useState('');
 
   const [createContact] = useCreateContactMutation();
   const [updateContact] = useUpdateContactMutation();
 
   useEffect(() => {
-    if (contact && contactId.length) {
-      setName(contact.name);
-      setSurname(contact.surname);
-      setPhone(contact.phone);
-      setEmail(contact.email);
-      setId(contact.id);
+    if (contacts && contactId.length) {
+      setName(contacts.name);
+      setNumber(contacts.number);
+      // setSurname(contact.surname);
+      // setEmail(contact.email);
+      // setId(contact.id);
     }
-  }, [contact, contactId.length]);
+  }, [contacts, contactId.length]);
 
   useEffect(() => {
     const close = e => {
@@ -56,15 +56,16 @@ export const Modal = () => {
 
     const values = {
       name,
-      surname,
-      phone,
-      email,
-      id,
+      number,
+      // surname,
+      // phone,
+      // email,
+      // id,
     };
 
     if (contactId) {
       try {
-        updateContact({ id, name, surname, phone, email });
+        updateContact({ name, number });
         toast.success('Saved');
       } catch (error) {
         toast.error('Ups something went wrong');
@@ -90,7 +91,7 @@ export const Modal = () => {
           <i className="fa-solid fa-xmark"></i>
         </button>
         <h2 className="modal-title">
-          {contact ? 'Change contact' : 'Create new contact'}
+          {contacts ? 'Change contact' : 'Create new contact'}
         </h2>
 
         {isLoading ? (
@@ -110,7 +111,7 @@ export const Modal = () => {
                 maxLength={10}
               />
             </div>
-            <div className="label-form">
+            {/* <div className="label-form">
               <label htmlFor="surname">Surname</label>
               <input
                 type="text"
@@ -121,20 +122,20 @@ export const Modal = () => {
                 placeholder="Surname"
                 maxLength={15}
               />
-            </div>
+            </div> */}
             <div className="label-form">
-              <label htmlFor="phone">Phone </label>
+              <label htmlFor="number">Phone </label>
               <input
                 type="phone"
-                name="phone"
-                id="phone"
-                value={phone}
-                onChange={e => setPhone(e.currentTarget.value)}
+                name="number"
+                id="number"
+                value={number}
+                onChange={e => setNumber(e.currentTarget.value)}
                 required
                 placeholder="Phone number"
               />
             </div>
-            <div className="label-form">
+            {/* <div className="label-form">
               <label htmlFor="email">Email:</label>
               <input
                 type="text"
@@ -144,10 +145,10 @@ export const Modal = () => {
                 onChange={e => setEmail(e.currentTarget.value)}
                 placeholder="Email"
               />
-            </div>
+            </div> */}
 
             <StyledModalButton type="submit">
-              {contact ? 'Save' : 'Add contact'}
+              {contacts ? 'Save' : 'Add contact'}
             </StyledModalButton>
           </form>
         )}

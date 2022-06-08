@@ -1,6 +1,5 @@
 import { ContactItem } from '../Contact-item/ContactItem';
 import { useFetchContactsQuery } from 'redux/ContactsAPI';
-
 import { StyledList } from './ContactList.styled';
 
 const getVisibleContacts = (items, value) => {
@@ -15,6 +14,7 @@ const getVisibleContacts = (items, value) => {
 
 export const ContactsList = ({ filterValue }) => {
   const { data } = useFetchContactsQuery();
+
   let visibleContacts;
 
   if (data) {

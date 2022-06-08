@@ -12,7 +12,7 @@ export const ContactItem = ({ contact }) => {
   const { setModalState: toggle, setContactId } = useModal();
   const [deleteContact, { isLoading }] = useDeleteContactMutation();
 
-  const { name, surname, phone, email, id } = contact;
+  const { name, surname, number, email, id } = contact;
 
   return (
     <StyledContactItem>
@@ -21,8 +21,8 @@ export const ContactItem = ({ contact }) => {
         <p>{surname}</p>
       </div>
 
-      <StyledLink href={`tel:${phone}`} className="phone">
-        {phone}
+      <StyledLink href={`tel:${number}`} className="phone">
+        {number}
       </StyledLink>
       {email && (
         <StyledLink mode="mail" href={`mailto:${email}`} className="email">
@@ -38,7 +38,7 @@ export const ContactItem = ({ contact }) => {
           padding="0"
           onClick={() => {
             toggle(true);
-            setContactId(id);
+            // setContactId(id);
           }}
         >
           <MdModeEdit size="1.5em" />

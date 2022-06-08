@@ -1,10 +1,14 @@
 import { useNavigate } from 'react-router-dom';
 import { RegForm } from './RegistrationForm.styled';
 import { StyledModalButton } from '../styles/ModalButton.styled';
-import { useRegisterQuery } from 'redux/AuthReducer';
+import { useDispatch } from 'react-redux';
+
+import { authOperations } from 'redux/auth/auth-operations';
+// import { useRegisterQuery } from 'redux/AuthReducer';
 
 export const RegistrationForm = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -22,7 +26,8 @@ export const RegistrationForm = () => {
       }
     }
 
-    // navigate('/');
+    dispatch(authOperations.register(user));
+    navigate('/phone');
     form.reset();
   };
 

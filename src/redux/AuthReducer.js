@@ -4,12 +4,21 @@ export const authApi = createApi({
   reducerPath: 'authApi',
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://connections-api.herokuapp.com',
+    prepareHeaders: (headers, { getState }) => {
+      const token = getState().auth.token;
+
+      if (token) {
+        headers.set('Authorization', `Bearer ${token}`);
+      }
+
+      return headers;
+    },
   }),
   tagTypes: ['auth'],
   endpoints: builder => ({
     register: builder.mutation({
       query: ({ name, email, password }) => ({
-        url: 'users/signup',
+        url: '/users/signup',
         method: 'POST',
         body: {
           name,

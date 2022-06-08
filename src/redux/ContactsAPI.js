@@ -1,11 +1,18 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
 
 export const contactApi = createApi({
   reducerPath: 'contactApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://627a4e8373bad50685867743.mockapi.io/api/v1',
+    baseUrl: 'https://connections-api.herokuapp.com',
+    prepareHeaders: (headers, { getState }) => {
+      const token = getState().auth.token;
+
+      if (token) {
+        headers.set('Authorization', `Bearer ${token}`);
+      }
+
+      return headers;
+    },
   }),
   tagTypes: ['contact'],
   endpoints: builder => ({
@@ -20,14 +27,15 @@ export const contactApi = createApi({
       providesTags: ['contact'],
     }),
     createContact: builder.mutation({
-      query: ({ name, surname, phone, email }) => ({
+      query: ({ name, number }) => ({
         url: '/contacts',
         method: 'POST',
         body: {
           name,
-          surname,
-          phone,
-          email,
+          number,
+          // surname,
+          // phone,
+          // email,
         },
       }),
       invalidatesTags: ['contact'],
@@ -50,17 +58,6 @@ export const contactApi = createApi({
     }),
   }),
 });
-
-const persistConfig = {
-  key: 'contacts',
-  storage,
-  whitelist: ['contacts'],
-};
-
-export const persistedContactsReducer = persistReducer(
-  persistConfig,
-  contactApi.reducer
-);
 
 export const {
   endpoints,

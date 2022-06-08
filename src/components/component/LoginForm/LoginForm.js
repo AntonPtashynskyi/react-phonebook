@@ -1,11 +1,14 @@
 import { useNavigate } from 'react-router-dom';
 import { RegForm } from '../RegistrationForm/RegistrationForm.styled';
 import { StyledModalButton } from '../styles/ModalButton.styled';
+import { authOperations } from 'redux/auth/auth-operations';
+import { useDispatch } from 'react-redux';
 
 export const LoginForm = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
     const user = {};
 
@@ -19,8 +22,8 @@ export const LoginForm = () => {
         user[name] = value;
       }
     }
-
-    navigate('/');
+    await dispatch(authOperations.login(user));
+    navigate('/phone');
     form.reset();
   };
 

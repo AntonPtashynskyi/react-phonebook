@@ -1,26 +1,20 @@
-// import toast from 'react-hot-toast';
-
 import { StyledNavLink } from './NavLink.styled';
 import { StyledHeader } from './Header.styled';
 import { NavigationStyled } from './Navigation.styled';
-// import { StyledButton } from '../styles/Button.styled';
 import { RegistrationButton } from '../Registraion-Logion-Button/Registration-Login-Button';
+import { UserMenu } from '../UserMenu/UserMenu';
+import { useSelector } from 'react-redux';
 
 export const Navigation = () => {
-  // const handleLoginButton = () => {
-  //   toast.error('Sorry, do not wort yet');
-  // };
+  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
 
   return (
     <StyledHeader>
       <NavigationStyled>
         <StyledNavLink to="/">Home</StyledNavLink>
-        <StyledNavLink to="phone">PhoneBook</StyledNavLink>
+        {isLoggedIn && <StyledNavLink to="phone">PhoneBook</StyledNavLink>}
       </NavigationStyled>
-      <RegistrationButton />
-      {/* <StyledButton margin="10px" onClick={handleLoginButton}>
-        LogIn
-      </StyledButton> */}
+      {isLoggedIn ? <UserMenu /> : <RegistrationButton />}
     </StyledHeader>
   );
 };

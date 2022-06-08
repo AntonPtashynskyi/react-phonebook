@@ -79,7 +79,7 @@ export const StyledModal = styled.div`
 
   @media (min-width: 764px) {
     width: 400px;
-    height: 550px;
+    height: 400px;
     border-radius: 10px;
     position: absolute;
     top: 50%;

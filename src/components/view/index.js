@@ -1,6 +1,5 @@
-export * from './ContactInfo';
 export * from './HomePage';
-export * from './Phonebook';
+export * from './ContactsView';
 export * from './LayoutView';
 export * from './RegistrationView';
 export * from './LoginView';
