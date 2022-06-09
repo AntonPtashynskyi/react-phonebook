@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
 import { authOperations } from 'redux/auth/auth-operations';
+import { ProtectedRoute } from './view/ProtectedRoute';
+import { PublicRout } from './view/PublicRoute';
 import {
   LayoutView,
   ContactsView,
@@ -22,9 +24,18 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<LayoutView />}>
           <Route index element={<HomePage />} />
-          <Route path="phone" element={<ContactsView />} />
-          <Route path="registration" element={<Registration />} />
-          <Route path="login" element={<LoginView />} />
+          <Route
+            path="phone"
+            element={
+              <ProtectedRoute>
+                <ContactsView />
+              </ProtectedRoute>
+            }
+          />
+          <Route element={<PublicRout />}>
+            <Route path="registration" element={<Registration />} />
+            <Route path="login" element={<LoginView />} />
+          </Route>
         </Route>
       </Routes>
     </>

@@ -38,7 +38,7 @@ export const ContactItem = ({ contact }) => {
           padding="0"
           onClick={() => {
             toggle(true);
-            // setContactId(id);
+            setContactId(id);
           }}
         >
           <MdModeEdit size="1.5em" />
