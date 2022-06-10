@@ -4,11 +4,8 @@ import { StyledList } from './ContactList.styled';
 
 const getVisibleContacts = (items, value) => {
   return items.filter(
-    ({ name, surname, phone, email }) =>
-      name.toLowerCase().includes(value) ||
-      surname.toLowerCase().includes(value) ||
-      phone.toLowerCase().includes(value) ||
-      email.toLowerCase().includes(value)
+    ({ name, number }) =>
+      name.toLowerCase().includes(value) || number.toLowerCase().includes(value)
   );
 };
 

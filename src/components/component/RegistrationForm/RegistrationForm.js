@@ -4,7 +4,6 @@ import { StyledModalButton } from '../styles/ModalButton.styled';
 import { useDispatch } from 'react-redux';
 
 import { authOperations } from 'redux/auth/auth-operations';
-// import { useRegisterQuery } from 'redux/AuthReducer';
 
 export const RegistrationForm = () => {
   const navigate = useNavigate();
