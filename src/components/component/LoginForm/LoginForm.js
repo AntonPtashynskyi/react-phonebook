@@ -22,9 +22,12 @@ export const LoginForm = () => {
         user[name] = value;
       }
     }
-    await dispatch(authOperations.login(user));
-    navigate('/phone');
-    form.reset();
+    await dispatch(authOperations.login(user))
+      .then(() => {
+        navigate('/phone');
+        form.reset();
+      })
+      .catch();
   };
 
   return (

@@ -25,9 +25,14 @@ export const RegistrationForm = () => {
       }
     }
 
-    dispatch(authOperations.register(user));
-    navigate('/phone');
-    form.reset();
+    try {
+      dispatch(authOperations.register(user))
+        .then(() => {
+          navigate('/phone');
+          form.reset();
+        })
+        .catch();
+    } catch (error) {}
   };
 
   return (
@@ -36,7 +41,13 @@ export const RegistrationForm = () => {
         <h3>Registration form</h3>
         <label>
           Name
-          <input type="text" name="name" required placeholder=" " />
+          <input
+            type="text"
+            name="name"
+            required
+            placeholder=" "
+            minLength={4}
+          />
         </label>
         <label>
           Email

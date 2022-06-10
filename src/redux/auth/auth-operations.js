@@ -21,7 +21,9 @@ const register = createAsyncThunk('auth/register', async credentials => {
     token.set(data.token);
     return data;
   } catch (error) {
-    toast.error(error.response.data.message);
+    if (error.response.status === 400) {
+      toast.error('Please try another name or email');
+    }
   }
 });
 
@@ -31,7 +33,9 @@ const login = createAsyncThunk('auth/login', async credentials => {
     token.set(data.token);
     return data;
   } catch (error) {
-    console.log(error);
+    if (error.response.status === 400) {
+      toast.error('Please check email or password');
+    }
   }
 });
 
