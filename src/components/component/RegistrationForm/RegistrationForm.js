@@ -32,7 +32,9 @@ export const RegistrationForm = () => {
           form.reset();
         })
         .catch();
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -55,7 +57,13 @@ export const RegistrationForm = () => {
         </label>
         <label>
           Password
-          <input type="password" name="password" required placeholder=" " />
+          <input
+            type="password"
+            name="password"
+            required
+            placeholder=" "
+            minLength={7}
+          />
         </label>
         <StyledModalButton type="submit">Submit</StyledModalButton>
       </RegForm>

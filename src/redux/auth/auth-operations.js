@@ -21,8 +21,10 @@ const register = createAsyncThunk('auth/register', async credentials => {
     token.set(data.token);
     return data;
   } catch (error) {
-    if (error.response.status === 400) {
-      toast.error('Please try another name or email');
+    if (error.response.data.code) {
+      toast.error('This email already exist');
+    } else {
+      toast.error('Ups something went wrong');
     }
   }
 });
