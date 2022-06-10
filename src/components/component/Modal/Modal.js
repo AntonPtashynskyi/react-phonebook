@@ -11,12 +11,23 @@ import { StyledBackdrop } from './BackDrop.styled';
 import { StyledModal } from './Modal.styled';
 import { StyledModalButton } from '../styles/ModalButton.styled';
 import { useModal } from './ModalContext';
+import { useFetchContactsQuery } from 'redux/ContactsAPI';
+import { current } from '@reduxjs/toolkit';
 
 export const Modal = () => {
-  const { setModalState: toggle, contactId, setContactId } = useModal();
-
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+
+  const { setModalState: toggle, contactId, setContactId } = useModal();
+  const { data } = useFetchContactsQuery();
+  const currentUser = data.find(contact => contact.id === contactId);
+
+  useEffect(() => {
+    if (data) {
+      setName(currentUser.name);
+      setNumber(currentUser.number);
+    }
+  }, []);
 
   const [createContact] = useCreateContactMutation();
   const [updateContact] = useUpdateContactMutation();
