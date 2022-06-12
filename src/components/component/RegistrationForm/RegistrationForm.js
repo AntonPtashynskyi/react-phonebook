@@ -37,8 +37,10 @@ export const RegistrationForm = () => {
         navigate('/phone');
       } else {
         if (response.error.data.code === 11000) {
-          toast.error(`${user.email} already exist`);
+          return toast.error(`${user.email} already exist`);
         }
+
+        toast.error(response.error.data.message);
       }
     } catch (error) {
       console.log('catch', error);

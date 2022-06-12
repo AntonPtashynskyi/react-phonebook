@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { logoutAuth } from 'redux/auth/Auth-Slice';
 import { useLogoutMutation } from 'redux/ContactsAPI';
 import * as pallet from '../styles/Pallet.styled';
+import { useEffect } from 'react';
 
 const UserMenuStyled = styled.div`
   display: flex;

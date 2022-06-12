@@ -20,13 +20,12 @@ export const App = () => {
   const dispatch = useDispatch();
   const token = useSelector(state => state.auth.token);
 
-  const { data: user } = useRefreshUserQuery(null, { skip: token === null });
+  const { data: user } = useRefreshUserQuery(token, { skip: !token });
 
   useEffect(() => {
     if (user === undefined || token === null) {
       return;
     }
-
     dispatch(refreshAuth(user));
   }, [dispatch, token, user]);
 

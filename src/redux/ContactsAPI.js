@@ -13,6 +13,7 @@ export const contactApi = createApi({
 
       return headers;
     },
+    refetchOnMountOrArgChange: true,
   }),
 
   tagTypes: ['contact'],
