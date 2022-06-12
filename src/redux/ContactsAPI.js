@@ -14,18 +14,21 @@ export const contactApi = createApi({
       return headers;
     },
   }),
+
   tagTypes: ['contact'],
   endpoints: builder => ({
     fetchContacts: builder.query({
       query: () => `/contacts`,
       providesTags: ['contact'],
     }),
+
     getContact: builder.query({
       query: contactId => ({
         url: `/contacts/${contactId}`,
       }),
       providesTags: ['contact'],
     }),
+
     createContact: builder.mutation({
       query: ({ name, number }) => ({
         url: '/contacts',
@@ -37,6 +40,7 @@ export const contactApi = createApi({
       }),
       invalidatesTags: ['contact'],
     }),
+
     deleteContact: builder.mutation({
       query: contactId => ({
         url: `/contacts/${contactId}`,
@@ -53,14 +57,51 @@ export const contactApi = createApi({
       }),
       invalidatesTags: ['contact'],
     }),
+
+    registration: builder.mutation({
+      query: credentials => ({
+        url: '/users/signup',
+        method: 'POST',
+        body: credentials,
+      }),
+      invalidatesTags: ['contact'],
+    }),
+
+    login: builder.mutation({
+      query: credentials => ({
+        url: '/users/login',
+        method: 'POST',
+        body: credentials,
+      }),
+      invalidatesTags: ['contact'],
+    }),
+
+    logout: builder.mutation({
+      query: () => ({
+        url: '/users/logout',
+        method: 'POST',
+      }),
+    }),
+
+    refreshUser: builder.query({
+      query: () => ({
+        url: '/users/current',
+        method: 'GET',
+      }),
+    }),
   }),
 });
 
 export const {
   endpoints,
+  reducer,
   useFetchContactsQuery,
   useGetContactQuery,
   useDeleteContactMutation,
   useCreateContactMutation,
   useUpdateContactMutation,
+  useRegistrationMutation,
+  useLoginMutation,
+  useLogoutMutation,
+  useRefreshUserQuery,
 } = contactApi;

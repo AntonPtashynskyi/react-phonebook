@@ -1,12 +1,16 @@
 import { useNavigate } from 'react-router-dom';
 import { RegForm } from '../RegistrationForm/RegistrationForm.styled';
 import { StyledModalButton } from '../styles/ModalButton.styled';
-import { authOperations } from 'redux/auth/auth-operations';
 import { useDispatch } from 'react-redux';
+import { useLoginMutation } from 'redux/ContactsAPI';
+import { loginAuth } from 'redux/auth/Auth-Slice';
+import toast from 'react-hot-toast';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const [login] = useLoginMutation();
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -22,12 +26,15 @@ export const LoginForm = () => {
         user[name] = value;
       }
     }
-    await dispatch(authOperations.login(user))
-      .then(() => {
-        navigate('/phone');
-        form.reset();
-      })
-      .catch();
+
+    const response = await login(user);
+
+    if (response.data) {
+      dispatch(loginAuth(response.data));
+      navigate('/phone');
+    } else {
+      toast.error('Ups try another password or email');
+    }
   };
 
   return (

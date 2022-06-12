@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { StyledButton } from '../styles/Button.styled';
-import { authOperations } from 'redux/auth/auth-operations';
 import { useNavigate } from 'react-router-dom';
+
+import { logoutAuth } from 'redux/auth/Auth-Slice';
+import { useLogoutMutation } from 'redux/ContactsAPI';
 import * as pallet from '../styles/Pallet.styled';
 
 const UserMenuStyled = styled.div`
@@ -21,12 +23,18 @@ const UserMenuStyled = styled.div`
 
 export const UserMenu = () => {
   const userName = useSelector(state => state.auth.user.name);
+  const [logout] = useLogoutMutation();
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleClick = async () => {
-    await dispatch(authOperations.logout());
-    navigate('/');
+    const response = await logout();
+
+    if (response.data) {
+      dispatch(logoutAuth());
+      navigate('/');
+    }
   };
 
   return (

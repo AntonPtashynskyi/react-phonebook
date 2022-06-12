@@ -1,9 +1,10 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
-import { authOperations } from 'redux/auth/auth-operations';
+
 import { ProtectedRoute } from './view/ProtectedRoute';
 import { PublicRout } from './view/PublicRoute';
+import { useSelector } from 'react-redux';
 import {
   LayoutView,
   ContactsView,
@@ -12,12 +13,22 @@ import {
   LoginView,
 } from './view/index';
 
+import { useRefreshUserQuery } from 'redux/ContactsAPI';
+import { refreshAuth } from 'redux/auth/Auth-Slice';
+
 export const App = () => {
   const dispatch = useDispatch();
+  const token = useSelector(state => state.auth.token);
+
+  const { data: user } = useRefreshUserQuery(null, { skip: token === null });
 
   useEffect(() => {
-    dispatch(authOperations.refreshCurrentUser());
-  }, [dispatch]);
+    if (user === undefined || token === null) {
+      return;
+    }
+
+    dispatch(refreshAuth(user));
+  }, [dispatch, token, user]);
 
   return (
     <>

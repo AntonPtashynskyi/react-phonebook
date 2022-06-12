@@ -10,12 +10,12 @@ const getVisibleContacts = (items, value) => {
 };
 
 export const ContactsList = ({ filterValue }) => {
-  const { data } = useFetchContactsQuery();
+  const response = useFetchContactsQuery();
 
   let visibleContacts;
 
-  if (data) {
-    visibleContacts = getVisibleContacts(data, filterValue);
+  if (response.data) {
+    visibleContacts = getVisibleContacts(response.data, filterValue);
   }
 
   return (

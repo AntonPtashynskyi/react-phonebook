@@ -2,10 +2,13 @@ import { useNavigate } from 'react-router-dom';
 import { RegForm } from './RegistrationForm.styled';
 import { StyledModalButton } from '../styles/ModalButton.styled';
 import { useDispatch } from 'react-redux';
+import toast from 'react-hot-toast';
 
-import { authOperations } from 'redux/auth/auth-operations';
+import { registrationAuth } from 'redux/auth/Auth-Slice';
+import { useRegistrationMutation } from 'redux/ContactsAPI';
 
 export const RegistrationForm = () => {
+  const [registration] = useRegistrationMutation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -26,14 +29,19 @@ export const RegistrationForm = () => {
     }
 
     try {
-      dispatch(authOperations.register(user))
-        .then(() => {
-          navigate('/phone');
-          form.reset();
-        })
-        .catch();
+      const response = await registration(user);
+
+      if (response.data) {
+        dispatch(registrationAuth(response.data));
+        form.reset();
+        navigate('/phone');
+      } else {
+        if (response.error.data.code === 11000) {
+          toast.error(`${user.email} already exist`);
+        }
+      }
     } catch (error) {
-      console.log(error);
+      console.log('catch', error);
     }
   };
 
